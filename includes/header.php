@@ -5,5 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magic Ball</title>
     <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../public/img/favicon.svg">
 </head>
 <body>

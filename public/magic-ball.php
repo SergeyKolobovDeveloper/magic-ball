@@ -29,7 +29,10 @@ require_once __DIR__ . '/../includes/header.php';
         <label for="question">Задайте своє питання кулі:</label>
         <input type="text" name="question" id="question" class="input-question" value="<?= htmlspecialchars($question ?? '') ?>" placeholder="Наприклад: Чи буде завтра дощ?" required>
         <?php if(!empty($answer)): ?>
-            <a href="magic-ball.php" class="submit reset-btn">Спитати ще раз</a>
+            <div class="buttons-group">
+                <a href="magic-ball.php" class="submit reset-btn">Спитати ще раз</a>
+                <input type="submit" class="submit btn btn-retry" value="Спробувати ще раз">
+            </div>
         <?php else: ?>
             <input type="submit" class="submit" value="Поїхали">
         <?php endif ?>

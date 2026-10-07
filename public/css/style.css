@@ -58,7 +58,6 @@ label {
 }
 
 a.submit {
-    display: inline-block;
     text-decoration: none;
 }
 
@@ -72,6 +71,12 @@ a.submit {
     border-radius: 25px;
     cursor: pointer;
     transition: transform 0.2s ease, background-image 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: normal;
+    box-sizing: border-box;
 }
 
 .submit:hover {
@@ -81,6 +86,34 @@ a.submit {
 
 .submit:active {
     transform: translateY(0);
+}
+
+.buttons-group {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.submit.btn-retry {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+.buttons-group .submit {
+    flex: 1;
+    max-width: 200px;
+}
+
+a.reset-btn {
+    text-decoration: none;
+    background: #4a4a5a;
+}
+
+a.reset-btn:hover {
+    background: #3a3a4a;
 }
 
 .ball-container {
@@ -158,6 +191,7 @@ a.submit {
     margin-bottom: 20px;
     font-size: 0.95rem;
 }
+
 footer {
     text-align: center;
     background: #000000;
