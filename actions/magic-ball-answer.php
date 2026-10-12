@@ -1,5 +1,11 @@
 <?php
 
+$bgClass = '';
+$question = '';
+$answer = '';
+$error = '';
+$color = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $question = trim($_POST['question'] ?? '');
@@ -29,6 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             2 => '#8B0000',
             3 => '#800080',
             4 => '#000080'
+        };
+
+        $bgClass = match($randomCategory) {
+            1 => 'bg-positive',
+            2 => 'bg-negative',
+            3 => 'bg-tentative',
+            4 => 'bg-neutral'
         };
 
         $answer = $selectedArray[array_rand($selectedArray)];

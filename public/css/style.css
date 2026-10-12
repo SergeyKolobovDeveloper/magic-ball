@@ -118,8 +118,8 @@ a.reset-btn:hover {
 
 .ball-container {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 320px;
+    height: 320px;
     margin-bottom: 30px;
 }
 
@@ -127,6 +127,7 @@ a.reset-btn:hover {
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    position: relative;
     background-image: radial-gradient(circle at 34% 35%, #4a4a5a, #000000 70%);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8),
             inset -10px -10px 20px rgba(0, 0, 0, 0.9),
@@ -137,8 +138,8 @@ a.reset-btn:hover {
 }
 
 .window {
-    width: 110px;
-    height: 110px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     background-color: #05050a;
     border: 3px solid #1a1a2e;
@@ -146,7 +147,17 @@ a.reset-btn:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    text-align: center;
+    transition: background-color 0.5s ease;
 }
+
+.window.bg-positive { background-color: #006400;}
+.window.bg-negative { background-color: #8B0000;}
+.window.bg-tentative { background-color: #800080;}
+.window.bg-neutral { background-color: #000080;}
 
 .eight {
     font-size: 2.5rem;
@@ -154,6 +165,32 @@ a.reset-btn:hover {
     color: #ffffff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     user-select: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.eight .hidden {
+    opacity: 0;
+    transform: scale(0.5);
+    display: none;
+}
+
+.ball-answer {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-shadow: 0 0 8px rgba(76, 201, 240, 0.7);
+    word-break: break-word;
+    /* Початковий стан (невидема та зменшена) */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.ball-answer.show {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .result-box {
@@ -198,4 +235,20 @@ footer {
     color: #fff;
     padding: 20px;
     font-size: 0.95rem;
+}
+
+@keyframes shakeBall {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    15% { transform: translate(-12px, -8px) rotate(-6deg); }
+    30% { transform: translate(10px, 8px) rotate(6deg); }
+    45% { transform: translate(-10px, 6px) rotate(-4deg); }
+    60% { transform: translate(8px, -6px) rotate(4deg); }
+    75% { transform: translate(-5px, 3px) rotate(-2deg); }
+    90% { transform: translate(4px, -2px) rotate(1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.ball-container.shaking {
+    animation: shakeBall 0.8s ease-in-out;
+    position: relative; /* щоб працював transform */
 }

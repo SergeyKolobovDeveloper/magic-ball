@@ -8,8 +8,14 @@ require_once __DIR__ . '/../includes/header.php';
 
     <div class="ball-container">
         <div class="ball-outer">
-            <div class="window">
-                <span class="eight">8</span>
+            <div class="window <?= !empty($answer) ? $bgClass : '' ?>">
+                <?php if (empty($answer)): ?>
+                    <span class="eight">8</span>
+                <?php else: ?>
+                    <div class="ball-answer show">
+                        <?= htmlspecialchars($answer) ?>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -21,7 +27,6 @@ require_once __DIR__ . '/../includes/header.php';
     <?php if (!empty($answer)): ?>
         <div class="result-box" style="background-color: <?= $color ?>;">
             <p class="user-question">Ваше питання: <span><?= htmlspecialchars($question) ?></span></p>
-            <h2 class="user-answer"><?= htmlspecialchars($answer) ?></h2>
         </div>
     <?php endif; ?>
 
